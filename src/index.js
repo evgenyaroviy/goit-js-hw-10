@@ -10,32 +10,14 @@ inputRef.addEventListener('keyup', debounce(onInputValue, DEBOUNCE_DELAY))
 function onInputValue(e) {
   const name = inputRef.value;
   console.log(Number(name.length))
-  if (Number(name.length) > 1) {
-    fetchCountries(name.trim());
-  } if (Number(name.length) === 0) {
+  if (Number(name.length) === 0) {
     return;
-  } else {
-    console.log('Введіть більше символів')
+  } if (Number(name.length) === 1) {
+    console.log('Too many matches found. Please enter a more specific name.')
+  } if (Number(name.length) > 1) {
+    fetchCountries(name.trim());
   }
-  
+
 }
-
-
-// function createGalleryCard(gallery) {
-//     return gallery.map(({ description, preview, original }) => {
-//         return `
-// <li class="gallery__item">
-//         <a class="gallery__link" href="${original}"">
-//             <img 
-//             class="gallery__image"
-//             src="${preview}" 
-//             alt="${description}">
-//         </a>
-//     </li>
-//     `;
-//     }).join('');
-     
-// }
-
 
 
