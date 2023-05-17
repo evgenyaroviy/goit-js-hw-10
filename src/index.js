@@ -5,12 +5,15 @@ var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
 const inputRef = document.querySelector('#search-box');
+console.log(inputRef.value)
 inputRef.addEventListener('keyup', debounce(onInputValue, DEBOUNCE_DELAY))
 function onInputValue(e) {
   const name = inputRef.value;
-  console.log(name.length)
-  if (name.length > 1) {
-    fetchCountries(name);
+  console.log(Number(name.length))
+  if (Number(name.length) > 1) {
+    fetchCountries(name.trim());
+  } if (Number(name.length) === 0) {
+    return;
   } else {
     console.log('Введіть більше символів')
   }

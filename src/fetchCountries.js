@@ -13,4 +13,3 @@ console.error('Ошибка:', error);
 });
 }
 
-// ?fields={name.official},{population},{flags.svg},{languages}
