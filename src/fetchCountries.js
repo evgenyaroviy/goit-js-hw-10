@@ -6,26 +6,6 @@ export function fetchCountries(name) {
       }
       return response.json();
     })
-    .then((data) => {
-      const addCard = document.querySelector('.country-info');
-      addCard.insertAdjacentHTML('beforeend', createCard(data))
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error('Oops, there is no country with that name', error);
-    });
+
 }
 
-function createCard(arr) {
-  return arr.map(({ name: { official }, capital, population, flags: { png }, languages }) => {
-    return `
-      <li>
-        <h2>${official}</h2>
-        <img src="${png}" alt="">
-        <p>${capital}</p>
-        <p>${population}</p>
-        <p>${{ languages }}</p>
-      </li>
-    `;
-  }).join('');
-}
